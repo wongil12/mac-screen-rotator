@@ -94,7 +94,7 @@ final class RotationMenuModel: ObservableObject {
     }
 
     func refresh() {
-        guard let controller else { return }
+        guard !isWorking, let controller else { return }
         isWorking = true
         Task {
             do {
@@ -108,7 +108,11 @@ final class RotationMenuModel: ObservableObject {
     }
 
     func rotate(to angle: RotationAngle) {
-        guard let controller else { return }
+        guard !isWorking, let controller else { return }
+        guard snapshot?.rotation != angle else {
+            succeed("이미 \(angle.rawValue)°입니다.")
+            return
+        }
         isWorking = true
         message = "\(angle.rawValue)° 적용 중…"
         hasError = false
@@ -132,6 +136,7 @@ final class RotationMenuModel: ObservableObject {
     }
 
     func rotateToNextAngle() {
+        guard !isWorking else { return }
         let current = snapshot?.rotation ?? .standard
         let all = RotationAngle.allCases
         let index = all.firstIndex(of: current) ?? 0
@@ -154,7 +159,7 @@ final class RotationMenuModel: ObservableObject {
     }
 
     func emergencyReset() {
-        guard let controller else { return }
+        guard !isWorking, let controller else { return }
         isWorking = true
         Task {
             do {
@@ -170,7 +175,7 @@ final class RotationMenuModel: ObservableObject {
     }
 
     private func recoverAndRefresh() {
-        guard let controller else { return }
+        guard !isWorking, let controller else { return }
         isWorking = true
         Task {
             do {
@@ -213,7 +218,7 @@ final class RotationMenuModel: ObservableObject {
     }
 
     private func restorePreferredAfterWake() {
-        guard let controller else { return }
+        guard !isWorking, let controller else { return }
         isWorking = true
         Task {
             do {
