@@ -62,7 +62,7 @@ struct MacScreenRotatorApp: App {
             Button("종료") { NSApplication.shared.terminate(nil) }
                 .keyboardShortcut("q")
         } label: {
-            Image(systemName: model.isWorking ? "display.and.arrow.down" : "rectangle.rotate")
+            Image(systemName: model.isWorking ? "display.and.arrow.down" : "rectangle.portrait.rotate")
         }
         .menuBarExtraStyle(.menu)
     }

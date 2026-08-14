@@ -4,6 +4,14 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Resources/AppIcon.icns</key>
+		<data>
+		f0p0acop6Rg5r4b2ykzIoiyAZUg=
+		</data>
+		<key>Resources/Assets.car</key>
+		<data>
+		R2tI1MW28VIClkCsut4yEHTvC+I=
+		</data>
 		<key>Resources/displayplacer-LICENSE.txt</key>
 		<data>
 		oS4gDPnE1Az1MTgAO1FbfjRcWIQ=
@@ -28,6 +36,20 @@
 			</data>
 			<key>requirement</key>
 			<string>cdhash H"75f90a0cdfd53e6aba35179258a9ad2a5c30c1b6"</string>
+		</dict>
+		<key>Resources/AppIcon.icns</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			w/zGuf+9+jCxYHTjAJKJc6qUx7pjTACxpsvOB5OnK8o=
+			</data>
+		</dict>
+		<key>Resources/Assets.car</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			xBYFNouvQWWprpVAKhnGjjIwC36Goh8enY04e40VVM4=
+			</data>
 		</dict>
 		<key>Resources/displayplacer-LICENSE.txt</key>
 		<dict>

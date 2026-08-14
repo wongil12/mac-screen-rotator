@@ -26,6 +26,12 @@ cp ".build/$configuration/screen-rotator-failsafe" "$contents_dir/Helpers/screen
 cp "$displayplacer_path" "$contents_dir/Helpers/displayplacer"
 cp Resources/Info.plist "$contents_dir/Info.plist"
 cp Resources/displayplacer-LICENSE.txt "$contents_dir/Resources/displayplacer-LICENSE.txt"
+xcrun actool Resources/Assets.xcassets \
+    --compile "$contents_dir/Resources" \
+    --platform macosx \
+    --minimum-deployment-target 15.0 \
+    --app-icon AppIcon \
+    --output-partial-info-plist "$project_root/.build/AppIcon-Info.plist"
 
 chmod 755 "$contents_dir/MacOS/MacScreenRotator" \
     "$contents_dir/Helpers/displayplacer" \

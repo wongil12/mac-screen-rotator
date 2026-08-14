@@ -12,6 +12,8 @@
     <string>dev.wongil.MacScreenRotator</string>
     <key>CFBundleInfoDictionaryVersion</key>
     <string>6.0</string>
+    <key>CFBundleIconName</key>
+    <string>AppIcon</string>
     <key>CFBundleName</key>
     <string>MacScreenRotator</string>
     <key>CFBundlePackageType</key>
