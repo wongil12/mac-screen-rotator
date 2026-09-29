@@ -87,6 +87,11 @@ jobs:
       - name: Create and notarize DMG
         run: |
           scripts/create-dmg.sh "dist/Mac-Screen-Rotator-${GITHUB_REF_NAME}.dmg"
+          codesign --force --timestamp \
+            --sign "$MAC_ROTATOR_SIGNING_IDENTITY" \
+            "dist/Mac-Screen-Rotator-${GITHUB_REF_NAME}.dmg"
+          codesign --verify --strict --verbose=2 \
+            "dist/Mac-Screen-Rotator-${GITHUB_REF_NAME}.dmg"
           xcrun notarytool submit "dist/Mac-Screen-Rotator-${GITHUB_REF_NAME}.dmg" \
             --key "$APPLE_API_KEY_PATH" \
             --key-id "$APPLE_API_KEY_ID" \
