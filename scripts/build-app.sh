@@ -7,6 +7,8 @@ configuration=${1:-release}
 app_dir="$project_root/dist/Mac Screen Rotator.app"
 contents_dir="$app_dir/Contents"
 displayplacer_path=${DISPLAYPLACER_PATH:-$(command -v displayplacer || true)}
+app_version=${MAC_ROTATOR_VERSION:-0.1.0}
+build_number=${MAC_ROTATOR_BUILD_NUMBER:-1}
 
 if [[ -z "$displayplacer_path" || ! -x "$displayplacer_path" ]]; then
     print -u2 "displayplacer가 필요합니다: brew install displayplacer"
@@ -20,16 +22,19 @@ env CLANG_MODULE_CACHE_PATH=.build/clang-module-cache \
     --config-path .build/config \
     --security-path .build/security
 
+/bin/rm -rf "$app_dir"
 mkdir -p "$contents_dir/MacOS" "$contents_dir/Helpers" "$contents_dir/Resources"
 cp ".build/$configuration/MacScreenRotator" "$contents_dir/MacOS/MacScreenRotator"
 cp ".build/$configuration/screen-rotator-failsafe" "$contents_dir/Helpers/screen-rotator-failsafe"
 cp "$displayplacer_path" "$contents_dir/Helpers/displayplacer"
 cp Resources/Info.plist "$contents_dir/Info.plist"
+/usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $app_version" "$contents_dir/Info.plist"
+/usr/libexec/PlistBuddy -c "Set :CFBundleVersion $build_number" "$contents_dir/Info.plist"
 cp Resources/displayplacer-LICENSE.txt "$contents_dir/Resources/displayplacer-LICENSE.txt"
 xcrun actool Resources/Assets.xcassets \
     --compile "$contents_dir/Resources" \
     --platform macosx \
-    --minimum-deployment-target 15.0 \
+    --minimum-deployment-target 26.0 \
     --app-icon AppIcon \
     --output-partial-info-plist "$project_root/.build/AppIcon-Info.plist"
 

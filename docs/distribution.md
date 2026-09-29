@@ -38,4 +38,8 @@ scripts/notarize-app.sh mac-screen-rotator-notary
 - 오픈소스 라이선스 포함 확인
 - 자동 업데이트 서명 키 준비
 
+## GitHub Releases
+
+태그 기반 GitHub Actions 배포 흐름과 필요한 저장소 Secrets는 [`github-release.md`](github-release.md)를 참고한다.
+
 실제 Developer ID 서명과 Apple 공증은 해당 Apple Developer 인증서 및 계정 자격 증명이 있는 환경에서만 완료할 수 있다.

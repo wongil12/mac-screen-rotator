@@ -1,8 +1,24 @@
 # Mac Screen Rotator
 
-MacBook 내장 디스플레이를 0°, 90°, 180°, 270°로 회전시키는 macOS 메뉴 막대 앱 프로젝트다.
+MacBook 내장 디스플레이를 0°, 90°, 180°, 270°로 회전시키는 macOS 메뉴 막대 앱이다.
 
-현재는 하드웨어와 macOS 호환성을 확인하는 0단계 PoC를 진행한다. 전체 계획은 [`docs/plan.md`](docs/plan.md)를 참고한다.
+![Mac Screen Rotator](Resources/AppIcon-master.png)
+
+## 다운로드 및 설치
+
+[GitHub Releases](https://github.com/wongil12/mac-screen-rotator/releases/latest)에서 최신 `Mac-Screen-Rotator-vX.Y.Z.dmg`를 다운로드한다.
+
+1. DMG를 연다.
+2. `Mac Screen Rotator.app`을 `Applications`로 드래그한다.
+3. 응용 프로그램 폴더에서 앱을 실행한다.
+4. 메뉴 막대의 화면 회전 아이콘에서 각도를 선택한다.
+
+지원 환경:
+
+- macOS 26.0 이상
+- Apple Silicon MacBook
+- Intel Mac 미지원
+- M5 MacBook Pro / macOS 26.2 검증
 
 ## PoC 안전 원칙
 
@@ -12,7 +28,7 @@ MacBook 내장 디스플레이를 0°, 90°, 180°, 270°로 회전시키는 mac
 
 요구 사항:
 
-- macOS 15 이상
+- macOS 26 이상
 - Xcode Command Line Tools
 - `brew install displayplacer`
 
@@ -48,3 +64,5 @@ scripts/build-app.sh
 ```
 
 생성 결과는 `dist/Mac Screen Rotator.app`이다. 서명과 공증 절차는 [`docs/distribution.md`](docs/distribution.md)를 참고한다.
+
+GitHub Releases 자동화는 [`docs/github-release.md`](docs/github-release.md)를 참고한다.

@@ -4,7 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "mac-screen-rotator",
-    platforms: [.macOS(.v15)],
+    platforms: [.macOS(.v26)],
     products: [
         .library(name: "ScreenRotationCore", targets: ["ScreenRotationCore"]),
         .executable(name: "screen-rotator-poc", targets: ["ScreenRotatorPoC"]),
